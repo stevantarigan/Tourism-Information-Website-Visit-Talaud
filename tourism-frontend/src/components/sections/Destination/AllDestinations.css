@@ -1,0 +1,905 @@
+/* =========================================
+   DESTINATIONS PAGE – MODERN & PROFESSIONAL
+   ========================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary: #0f5b9e;
+    --primary-light: #3a7bd5;
+    --accent: #00b4d8;
+    --bg: #f0f4f8;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --text: #1e293b;
+    --text-soft: #64748b;
+    --shadow-sm: 0 8px 20px rgba(0, 0, 0, 0.04);
+    --shadow-md: 0 20px 40px rgba(0, 0, 0, 0.08);
+    --radius: 24px;
+    --transition: 0.35s cubic-bezier(0.2, 0.9, 0.4, 1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+}
+
+/* ---------- LAYOUT ---------- */
+.destinations-page {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 40px 28px 80px;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* ---------- BACK BUTTON ---------- */
+.back-btn {
+    position: fixed;
+    top: 24px;
+    left: 28px;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 50px;
+    padding: 10px 22px 10px 18px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: var(--shadow-sm);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background: #fff;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.12);
+    transform: translateX(-4px);
+}
+
+/* ---------- HEADER ---------- */
+.dest-header {
+    text-align: center;
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dest-header-content h1 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, #0f5b9e, #00b4d8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+}
+
+.dest-underline {
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-light), var(--accent));
+    border-radius: 2px;
+    margin: 12px auto 16px;
+}
+
+.dest-subtitle {
+    color: var(--text-soft);
+    font-size: 1.15rem;
+    max-width: 450px;
+    line-height: 1.6;
+    margin: 0 auto;
+}
+
+/* ---------- SEARCH BOX ---------- */
+.search-box {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(14px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 50px;
+    padding: 0 20px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.search-box:focus-within {
+    box-shadow: 0 16px 35px rgba(15, 91, 158, 0.1);
+    border-color: var(--primary-light);
+}
+
+.search-box svg {
+    color: #94a3b8;
+    flex-shrink: 0;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 16px 12px;
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--text);
+    outline: none;
+    font-family: inherit;
+}
+
+.search-box input::placeholder {
+    color: #94a3b8;
+    font-weight: 400;
+}
+
+/* ---------- GRID ---------- */
+.dest-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+    gap: 32px;
+    justify-content: center;
+}
+
+/* ---------- CARD ---------- */
+.dest-card {
+    background: var(--card-bg);
+    backdrop-filter: blur(8px);
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition);
+    display: flex;
+    flex-direction: column;
+    animation: cardFadeIn 0.5s ease forwards;
+    opacity: 0;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dest-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 50px rgba(15, 91, 158, 0.12);
+    border-color: rgba(15, 91, 158, 0.2);
+}
+
+/* Highlight kartu populer */
+.dest-card.is-popular {
+    border-color: rgba(253, 203, 110, 0.7);
+}
+
+.dest-card.is-popular:hover {
+    border-color: #fdcb6e;
+    box-shadow: 0 30px 50px rgba(225, 112, 85, 0.18);
+}
+
+/* ---------- CARD IMAGE ---------- */
+.dest-card-img {
+    position: relative;
+    padding-top: 70%;
+    background: #e2e8f0;
+    overflow: hidden;
+}
+
+.dest-card-img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease, filter 0.6s;
+    filter: brightness(0.88);
+}
+
+.dest-card:hover .dest-card-img img {
+    transform: scale(1.08);
+    filter: brightness(1);
+}
+
+.dest-img-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #0f5b9e, #00b4d8);
+    color: white;
+    font-size: 3.5rem;
+}
+
+.dest-img-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.45) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.dest-card:hover .dest-img-overlay {
+    opacity: 1;
+}
+
+/* ---------- VIEW COUNT BADGE ---------- */
+.dest-views {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 14px;
+    border-radius: 50px;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.3px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    z-index: 3;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.dest-views svg {
+    stroke: #00b4d8;
+    flex-shrink: 0;
+    transition: stroke 0.3s ease;
+}
+
+.dest-card:hover .dest-views {
+    background: rgba(15, 91, 158, 0.9);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.dest-card:hover .dest-views svg {
+    stroke: #ffffff;
+}
+
+/* ---------- BADGE POPULER (TOP 3) ---------- */
+.dest-popular-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 3;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #fdcb6e, #e17055);
+    color: #2d3436;
+    font-weight: 800;
+    font-size: 0.75rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 16px rgba(225, 112, 85, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    animation: popularPulse 2.4s ease-in-out infinite;
+}
+
+.dest-popular-badge svg {
+    fill: #2d3436;
+    stroke: #2d3436;
+    flex-shrink: 0;
+}
+
+@keyframes popularPulse {
+
+    0%,
+    100% {
+        box-shadow: 0 6px 16px rgba(225, 112, 85, 0.45);
+    }
+
+    50% {
+        box-shadow: 0 6px 22px rgba(253, 203, 110, 0.75);
+    }
+}
+
+/* ---------- CARD BODY ---------- */
+.dest-card-body {
+    padding: 22px 24px 28px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.dest-name {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.3;
+    transition: color 0.3s;
+}
+
+.dest-card:hover .dest-name {
+    color: var(--primary-light);
+}
+
+.dest-location {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.dest-location svg {
+    flex-shrink: 0;
+    color: var(--primary-light);
+}
+
+.dest-desc {
+    font-size: 0.95rem;
+    color: #475569;
+    line-height: 1.7;
+    flex: 1;
+    margin-bottom: 20px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+}
+
+/* ---------- BUTTON ---------- */
+.dest-btn {
+    align-self: flex-end;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 26px;
+    background: linear-gradient(135deg, var(--primary-light), var(--primary));
+    color: #fff;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    box-shadow: 0 8px 18px rgba(15, 91, 158, 0.25);
+    transition: all 0.3s ease;
+}
+
+.dest-btn:hover {
+    background: linear-gradient(135deg, #054a85, #0f5b9e);
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(15, 91, 158, 0.35);
+}
+
+.dest-btn svg {
+    transition: transform 0.25s;
+}
+
+.dest-btn:hover svg {
+    transform: translateX(3px);
+}
+
+/* ---------- LOADING, ERROR, EMPTY ---------- */
+.dest-loading,
+.dest-error,
+.dest-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 16px;
+    color: var(--text-soft);
+    font-size: 1.1rem;
+}
+
+.dest-spinner {
+    width: 48px;
+    height: 48px;
+    border: 3px solid rgba(15, 91, 158, 0.15);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.dest-error svg {
+    margin-bottom: 8px;
+}
+
+.dest-error button {
+    background: var(--primary-light);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 8px;
+}
+
+.dest-error button:hover {
+    background: var(--primary);
+}
+
+.dest-empty span {
+    font-size: 3rem;
+    opacity: 0.7;
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 768px) {
+    .destinations-page {
+        padding: 30px 18px 60px;
+    }
+
+    .dest-header-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .dest-grid {
+        grid-template-columns: 1fr;
+        max-width: 450px;
+        margin: 0 auto;
+    }
+
+    .search-box {
+        max-width: 100%;
+    }
+
+    .back-btn {
+        top: 16px;
+        left: 16px;
+        padding: 8px 18px 8px 14px;
+        font-size: 0.9rem;
+    }
+
+    .dest-popular-badge {
+        top: 12px;
+        left: 12px;
+        padding: 5px 10px;
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .dest-card-body {
+        padding: 18px 18px 24px;
+    }
+
+    .dest-name {
+        font-size: 1.2rem;
+    }
+
+    .dest-views {
+        top: 10px;
+        right: 10px;
+        padding: 5px 10px;
+        font-size: 0.78rem;
+    }
+
+    .dest-popular-badge {
+        top: 10px;
+        left: 10px;
+        padding: 4px 9px;
+        font-size: 0.65rem;
+        gap: 4px;
+    }
+
+    .dest-popular-badge svg {
+        width: 10px;
+        height: 10px;
+    }
+}
+
+/* =========================================
+   ANALISIS KEPOPULERAN DESTINASI (PIE CHART)
+   ========================================= */
+
+.popularity-section {
+    margin-bottom: 50px;
+    animation: cardFadeIn 0.5s ease forwards;
+}
+
+.popularity-card {
+    background: #ffffff;
+    border: 1px solid rgba(15, 91, 158, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(15, 91, 158, 0.06);
+    padding: 32px 36px 36px;
+    overflow: hidden;
+}
+
+/* ---------- HEADER KARTU ANALISIS ---------- */
+.popularity-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 24px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(15, 91, 158, 0.08);
+    flex-wrap: wrap;
+}
+
+.popularity-heading {
+    min-width: 0;
+    max-width: 620px;
+}
+
+.popularity-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.3px;
+    line-height: 1.35;
+    margin: 0 0 6px;
+}
+
+.popularity-subtitle {
+    font-size: 0.92rem;
+    color: var(--text-soft);
+    line-height: 1.6;
+    margin: 0;
+    max-width: 560px;
+}
+
+/* ---------- RINGKASAN TOTAL TAYANGAN ---------- */
+.popularity-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    padding-left: 24px;
+    border-left: 1px solid rgba(15, 91, 158, 0.1);
+    flex-shrink: 0;
+}
+
+.popularity-summary-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-soft);
+    margin-bottom: 4px;
+}
+
+.popularity-summary-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary);
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+    font-variant-numeric: tabular-nums;
+}
+
+.popularity-summary-sub {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 4px;
+    font-weight: 400;
+}
+
+/* ---------- BODY: CHART + LEGEND ---------- */
+.popularity-body {
+    display: grid;
+    grid-template-columns: minmax(280px, 0.9fr) minmax(300px, 1.1fr);
+    gap: 40px;
+    align-items: center;
+}
+
+/* ---------- CHART ---------- */
+.popularity-chart-wrap {
+    position: relative;
+    width: 100%;
+    min-height: 300px;
+}
+
+.popularity-chart-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    text-align: center;
+}
+
+.popularity-chart-center-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1.1;
+    letter-spacing: -0.4px;
+    font-variant-numeric: tabular-nums;
+}
+
+.popularity-chart-center-label {
+    font-size: 0.72rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--text-soft);
+    margin-top: 2px;
+}
+
+/* ---------- LEGENDA KUSTOM ---------- */
+.popularity-legend {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.popularity-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 10px;
+    border-radius: 10px;
+    border-bottom: 1px solid rgba(15, 91, 158, 0.06);
+    transition: background 0.2s ease;
+}
+
+.popularity-legend-item:last-child {
+    border-bottom: none;
+}
+
+.popularity-legend-item:hover {
+    background: rgba(15, 91, 158, 0.04);
+}
+
+.popularity-legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.popularity-legend-text {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+}
+
+.popularity-legend-name {
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.popularity-legend-sub {
+    font-size: 0.72rem;
+    color: var(--text-soft);
+    margin-top: 2px;
+    font-weight: 400;
+}
+
+.popularity-legend-meta {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-shrink: 0;
+    min-width: 110px;
+    justify-content: flex-end;
+}
+
+.popularity-legend-views {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+    min-width: 48px;
+    text-align: right;
+}
+
+.popularity-legend-percent {
+    font-size: 0.82rem;
+    font-weight: 500;
+    color: var(--primary-light);
+    font-variant-numeric: tabular-nums;
+    min-width: 46px;
+    text-align: right;
+}
+
+/* ---------- TOOLTIP ---------- */
+.popularity-tooltip {
+    background: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 10px 14px;
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+    font-size: 0.84rem;
+    min-width: 160px;
+}
+
+.popularity-tooltip-title {
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-bottom: 6px;
+    padding-bottom: 6px;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.popularity-tooltip-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 2px 0;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.popularity-tooltip-row strong {
+    color: #ffffff;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+}
+
+.popularity-tooltip-hint {
+    margin-top: 6px;
+    font-size: 0.72rem;
+    color: #90e0ef;
+    font-style: italic;
+}
+
+/* ---------- EMPTY STATE ---------- */
+.popularity-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 56px 28px;
+    gap: 8px;
+}
+
+.popularity-empty-icon {
+    color: var(--primary-light);
+    opacity: 0.55;
+    margin-bottom: 4px;
+}
+
+.popularity-empty h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0;
+}
+
+.popularity-empty p {
+    font-size: 0.9rem;
+    color: var(--text-soft);
+    max-width: 380px;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* ---------- RESPONSIF ---------- */
+@media (max-width: 900px) {
+    .popularity-body {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .popularity-chart-wrap {
+        min-height: 280px;
+    }
+}
+
+@media (max-width: 768px) {
+    .popularity-card {
+        padding: 24px 22px 26px;
+    }
+
+    .popularity-header {
+        gap: 16px;
+        margin-bottom: 22px;
+        padding-bottom: 20px;
+    }
+
+    .popularity-title {
+        font-size: 1.2rem;
+    }
+
+    .popularity-subtitle {
+        font-size: 0.88rem;
+    }
+
+    .popularity-summary {
+        align-items: flex-start;
+        text-align: left;
+        padding-left: 0;
+        padding-top: 14px;
+        border-left: none;
+        border-top: 1px solid rgba(15, 91, 158, 0.08);
+        width: 100%;
+    }
+
+    .popularity-summary-value {
+        font-size: 1.65rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .popularity-card {
+        padding: 20px 16px 22px;
+        border-radius: 16px;
+    }
+
+    .popularity-chart-wrap {
+        min-height: 240px;
+    }
+
+    .popularity-chart-center-value {
+        font-size: 1.25rem;
+    }
+
+    .popularity-chart-center-label {
+        font-size: 0.65rem;
+    }
+
+    .popularity-legend-item {
+        padding: 10px 6px;
+        gap: 12px;
+    }
+
+    .popularity-legend-name {
+        font-size: 0.86rem;
+    }
+
+    .popularity-legend-views {
+        font-size: 0.82rem;
+        min-width: 42px;
+    }
+
+    .popularity-legend-percent {
+        font-size: 0.76rem;
+        min-width: 40px;
+    }
+
+    .popularity-legend-meta {
+        gap: 10px;
+        min-width: 92px;
+    }
+}

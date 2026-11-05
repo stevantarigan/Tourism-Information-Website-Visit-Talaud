@@ -1,0 +1,400 @@
+/* =========================================
+   FOOTER MANAGER - COMPONENT STYLES
+   ========================================= */
+
+/* Page Header */
+.footer-manager-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.footer-manager-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--admin-text);
+    letter-spacing: -0.02em;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.footer-manager-header h2 span {
+    color: var(--admin-text-muted);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+.footer-manager-header h2 svg {
+    width: 24px;
+    height: 24px;
+}
+
+.btn-edit-footer {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, var(--admin-accent), var(--admin-accent-hover));
+    color: white;
+    border: none;
+    border-radius: var(--admin-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+}
+
+.btn-edit-footer:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+.btn-edit-footer svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Preview Card */
+.footer-preview-card {
+    background: var(--admin-surface);
+    border-radius: var(--admin-radius-lg);
+    padding: 24px 28px;
+    margin-bottom: 24px;
+    border: 1px solid var(--admin-border);
+    box-shadow: var(--admin-shadow-sm);
+}
+
+.footer-preview-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--admin-text);
+    margin-bottom: 16px;
+}
+
+.footer-preview {
+    background: linear-gradient(180deg, #0B192C 0%, #081221 100%);
+    border-radius: var(--admin-radius-md);
+    padding: 32px 40px;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.preview-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+.preview-brand h4 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #fff;
+    margin: 0 0 4px 0;
+}
+
+.preview-brand p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin: 0;
+}
+
+.preview-copyright p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin: 0;
+}
+
+/* Form Container */
+.footer-manager-container {
+    background: var(--admin-surface);
+    border-radius: var(--admin-radius-lg);
+    padding: 28px 32px 32px;
+    border: 1px solid var(--admin-border);
+    box-shadow: var(--admin-shadow-sm);
+    transition: all var(--admin-transition);
+}
+
+.footer-manager-container:hover {
+    box-shadow: var(--admin-shadow-md);
+}
+
+.footer-manager-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--admin-text);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--admin-border-light);
+}
+
+.footer-manager-title .form-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--admin-radius-sm);
+    background: var(--admin-accent-light);
+    color: var(--admin-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-manager-title .form-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Form */
+.footer-manager-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.footer-manager-form .full-width {
+    grid-column: 1 / -1;
+}
+
+/* Detail View */
+.footer-detail-view {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.detail-item {
+    padding: 16px 20px;
+    background: var(--admin-background);
+    border-radius: var(--admin-radius-sm);
+    border: 1px solid var(--admin-border-light);
+}
+
+.detail-item label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--admin-text-muted);
+    display: block;
+    margin-bottom: 4px;
+}
+
+.detail-item p {
+    font-size: 0.95rem;
+    color: var(--admin-text);
+    margin: 0;
+    font-weight: 500;
+}
+
+.detail-empty {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--admin-text-muted);
+}
+
+/* Form Actions */
+.form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--admin-border-light);
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.btn-submit {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, var(--admin-accent), var(--admin-accent-hover));
+    color: white;
+    border: none;
+    border-radius: var(--admin-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+}
+
+.btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+.btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.btn-submit svg {
+    width: 18px;
+    height: 18px;
+}
+
+.btn-cancel {
+    padding: 12px 32px;
+    background: var(--admin-background);
+    color: var(--admin-text-secondary);
+    border: 2px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-cancel:hover:not(:disabled) {
+    background: var(--admin-border);
+    transform: translateY(-2px);
+}
+
+.btn-cancel:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+/* Spinner */
+.spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form Group - reused from global */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--admin-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.form-group label .required {
+    color: var(--admin-danger);
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 12px 16px;
+    border: 2px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    font-size: 0.9rem;
+    font-family: var(--admin-font-family);
+    transition: all var(--admin-transition);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    width: 100%;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.form-group input:disabled,
+.form-group textarea:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .footer-manager-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-manager-header h2 span {
+        display: none;
+    }
+
+    .footer-manager-container {
+        padding: 20px;
+    }
+
+    .footer-manager-form {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-manager-form .full-width {
+        grid-column: 1;
+    }
+
+    .footer-detail-view {
+        grid-template-columns: 1fr;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-preview {
+        padding: 20px;
+    }
+
+    .preview-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .footer-manager-container {
+        padding: 16px;
+    }
+
+    .footer-manager-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .detail-item {
+        padding: 12px 16px;
+    }
+}

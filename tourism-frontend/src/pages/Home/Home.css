@@ -1,0 +1,32 @@
+/* ============================================
+   HOME PAGE LAYOUT
+   ============================================ */
+
+.home {
+    display: flex;
+    flex-direction: column;
+    /* Tidak ada padding-top agar Hero langsung menyentuh atas */
+    margin: 0;
+    padding: 0;
+}
+
+/* Navbar sudah fixed, jadi biarkan saja */
+
+/* Semua section dalam .home */
+.home>section {
+    scroll-margin-top: 80px;
+    /* untuk anchor link */
+}
+
+/* Pemisah antar section (kecuali yang terakhir) */
+.home>section:not(:last-child) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+/* ---------- RESPONSIVE ADJUSTMENTS ---------- */
+@media (max-width: 768px) {
+    .home>section {
+        scroll-margin-top: 70px;
+        /* navbar lebih kecil di mobile */
+    }
+}

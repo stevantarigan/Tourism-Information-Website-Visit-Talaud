@@ -1,0 +1,536 @@
+/* =========================================
+   DESTINATION IMAGES MANAGER
+   ========================================= */
+
+/* Page Header */
+.destination-images-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.destination-images-header h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--admin-text);
+    letter-spacing: -0.02em;
+}
+
+.destination-images-header h2 span {
+    color: var(--admin-text-muted);
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+/* Form Container */
+.destination-image-form-container {
+    background: var(--admin-surface);
+    border-radius: var(--admin-radius-lg);
+    padding: 28px 32px 32px;
+    margin-bottom: 32px;
+    border: 1px solid var(--admin-border);
+    box-shadow: var(--admin-shadow-sm);
+    transition: all var(--admin-transition);
+}
+
+.destination-image-form-container:hover {
+    box-shadow: var(--admin-shadow-md);
+}
+
+.destination-image-form-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--admin-text);
+    margin-bottom: 20px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--admin-border-light);
+}
+
+.destination-image-form-title .form-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: var(--admin-radius-sm);
+    background: var(--admin-accent-light);
+    color: var(--admin-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.destination-image-form-title .form-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Form Grid */
+.destination-image-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.destination-image-form .full-width {
+    grid-column: 1 / -1;
+}
+
+/* Form Group */
+.destination-image-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.destination-image-form .form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--admin-text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+}
+
+.destination-image-form .form-group label .required {
+    color: var(--admin-danger);
+    font-weight: 700;
+}
+
+.destination-image-form .form-group label .field-hint {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+    font-weight: 400;
+}
+
+.destination-image-form .form-group input,
+.destination-image-form .form-group textarea,
+.destination-image-form .form-group select {
+    padding: 12px 16px;
+    border: 2px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    font-size: 0.9rem;
+    font-family: var(--admin-font-family);
+    transition: all var(--admin-transition);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    width: 100%;
+}
+
+.destination-image-form .form-group input:focus,
+.destination-image-form .form-group textarea:focus,
+.destination-image-form .form-group select:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.08);
+}
+
+.destination-image-form .form-group input:hover,
+.destination-image-form .form-group textarea:hover,
+.destination-image-form .form-group select:hover {
+    border-color: var(--admin-text-muted);
+}
+
+.destination-image-form .form-group input:disabled,
+.destination-image-form .form-group textarea:disabled,
+.destination-image-form .form-group select:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Select arrow */
+.destination-image-form .form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+/* File Upload */
+.destination-image-form .file-upload-wrapper {
+    position: relative;
+    border: 2px dashed var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    padding: 24px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    background: var(--admin-background);
+}
+
+.destination-image-form .file-upload-wrapper:hover {
+    border-color: var(--admin-accent);
+    background: var(--admin-accent-light);
+}
+
+.destination-image-form .file-upload-wrapper.dragging {
+    border-color: var(--admin-accent);
+    background: var(--admin-accent-light);
+    transform: scale(1.01);
+}
+
+.destination-image-form .file-upload-wrapper .upload-icon {
+    font-size: 2.5rem;
+    color: var(--admin-text-muted);
+    margin-bottom: 8px;
+}
+
+.destination-image-form .file-upload-wrapper .upload-icon svg {
+    width: 48px;
+    height: 48px;
+}
+
+.destination-image-form .file-upload-wrapper .upload-text {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--admin-text-secondary);
+}
+
+.destination-image-form .file-upload-wrapper .upload-subtext {
+    font-size: 0.8rem;
+    color: var(--admin-text-muted);
+    margin-top: 4px;
+}
+
+.destination-image-form .file-upload-wrapper input[type="file"] {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.destination-image-form .file-upload-wrapper input[type="file"]:disabled {
+    cursor: not-allowed;
+}
+
+/* Image Preview */
+.destination-image-form .image-preview-container {
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 12px 16px;
+    background: var(--admin-background);
+    border-radius: var(--admin-radius-sm);
+    border: 1px solid var(--admin-border);
+}
+
+.destination-image-form .image-preview-container .preview-image {
+    width: 80px;
+    height: 80px;
+    border-radius: var(--admin-radius-sm);
+    object-fit: cover;
+    border: 2px solid var(--admin-border);
+    flex-shrink: 0;
+}
+
+.destination-image-form .image-preview-container .preview-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.destination-image-form .image-preview-container .preview-info .file-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--admin-text);
+    word-break: break-all;
+}
+
+.destination-image-form .image-preview-container .preview-info .file-size {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+}
+
+.destination-image-form .image-preview-container .preview-info .file-note {
+    font-size: 0.75rem;
+    color: var(--admin-text-muted);
+    margin-top: 4px;
+}
+
+.destination-image-form .image-preview-container .btn-remove-image {
+    padding: 6px 12px;
+    background: var(--admin-danger-light);
+    color: var(--admin-danger);
+    border: none;
+    border-radius: var(--admin-radius-sm);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.destination-image-form .image-preview-container .btn-remove-image:hover:not(:disabled) {
+    background: #FEE2E2;
+    transform: scale(1.05);
+}
+
+.destination-image-form .image-preview-container .btn-remove-image:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.destination-image-form .image-preview-container .btn-remove-image svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* Form Actions */
+.destination-image-form .form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--admin-border-light);
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    grid-column: 1 / -1;
+}
+
+.destination-image-form .btn-submit {
+    padding: 12px 32px;
+    background: linear-gradient(135deg, var(--admin-accent), var(--admin-accent-hover));
+    color: white;
+    border: none;
+    border-radius: var(--admin-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    box-shadow: 0 4px 16px rgba(37, 99, 235, 0.25);
+}
+
+.destination-image-form .btn-submit:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
+}
+
+.destination-image-form .btn-submit:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+.destination-image-form .btn-submit svg {
+    width: 18px;
+    height: 18px;
+}
+
+.destination-image-form .btn-cancel {
+    padding: 12px 32px;
+    background: var(--admin-background);
+    color: var(--admin-text-secondary);
+    border: 2px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all var(--admin-transition);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.destination-image-form .btn-cancel:hover:not(:disabled) {
+    background: var(--admin-border);
+    transform: translateY(-2px);
+}
+
+.destination-image-form .btn-cancel:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Spinner */
+.destination-image-form .spinner {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: destinationImageSpin 0.6s linear infinite;
+}
+
+@keyframes destinationImageSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* =========================================
+   TABLE HEADER
+   ========================================= */
+.admin-page > .table-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.table-header h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--admin-text);
+}
+
+.table-header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.table-header .filter-select {
+    padding: 8px 32px 8px 14px;
+    border: 1.5px solid var(--admin-border);
+    border-radius: var(--admin-radius-sm);
+    background: var(--admin-surface);
+    color: var(--admin-text);
+    font-size: 0.85rem;
+    font-family: var(--admin-font-family);
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2364748b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    transition: all var(--admin-transition);
+    max-width: 220px;
+}
+
+.table-header .filter-select:hover {
+    border-color: var(--admin-text-muted);
+}
+
+.table-header .filter-select:focus {
+    outline: none;
+    border-color: var(--admin-accent);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.table-header .table-count {
+    font-size: 0.85rem;
+    color: var(--admin-text-muted);
+    background: var(--admin-background);
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+/* =========================================
+   BADGE URUTAN
+   ========================================= */
+.badge-order {
+    background: var(--admin-warning-light, #FDF4E3);
+    color: var(--admin-warning, #C9811A);
+    font-variant-numeric: tabular-nums;
+    padding: 4px 14px;
+}
+
+/* =========================================
+   RESPONSIVE
+   ========================================= */
+@media (max-width: 1024px) {
+    .destination-image-form {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .destination-images-header h2 {
+        font-size: 1.3rem;
+    }
+
+    .destination-images-header h2 span {
+        display: none;
+    }
+
+    .destination-image-form-container {
+        padding: 20px;
+    }
+
+    .destination-image-form {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-image-form .full-width {
+        grid-column: 1;
+    }
+
+    .destination-image-form .form-actions {
+        flex-direction: column;
+    }
+
+    .destination-image-form .form-actions button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .destination-image-form .image-preview-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .destination-image-form .image-preview-container .preview-image {
+        width: 100px;
+        height: 100px;
+    }
+
+    .table-header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .table-header .filter-select {
+        flex: 1;
+        max-width: none;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 10px 12px;
+    }
+
+    .table-image {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    .destination-image-form-container {
+        padding: 16px;
+    }
+
+    .destination-images-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .data-table th,
+    .data-table td {
+        padding: 8px 10px;
+        font-size: 0.75rem;
+    }
+
+    .destination-image-form .file-upload-wrapper {
+        padding: 16px;
+    }
+
+    .table-image {
+        width: 36px;
+        height: 36px;
+    }
+}

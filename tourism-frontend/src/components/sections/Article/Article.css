@@ -1,0 +1,278 @@
+/* ============================================
+   ARTICLE SECTION – HEADER FUNGSIONAL & MODERN
+   ============================================ */
+
+.article {
+    background: linear-gradient(to bottom, #f8f9fa, #ffffff);
+    padding: 80px 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekorasi latar */
+.article::before {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(9, 132, 227, 0.03);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+.article .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.article h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #2d3436;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    position: relative;
+}
+
+/* Garis bawah dekoratif */
+.article h2::after {
+    content: '';
+    display: block;
+    width: 70px;
+    height: 4px;
+    background: linear-gradient(90deg, #0984e3, #74b9ff);
+    border-radius: 2px;
+    margin: 12px auto 0;
+    animation: underlinePulse 2.5s infinite alternate;
+}
+
+@keyframes underlinePulse {
+    0% {
+        width: 70px;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+.article .section-subtitle {
+    text-align: center;
+    color: #636e72;
+    font-size: 1.1rem;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+.article-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.article .no-data {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 40px;
+    color: #636e72;
+    font-size: 1.1rem;
+}
+
+/* ============================================
+   TOMBOL LIHAT SEMUA ARTIKEL
+   Konsisten dengan .gallery-cta & .culture-cta
+   ============================================ */
+.article-cta-wrapper {
+    text-align: center;
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+}
+
+.article-cta {
+    /* Reset total */
+    all: unset;
+
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    /* Ukuran */
+    padding: 18px 48px;
+    min-height: 60px;
+    box-sizing: border-box;
+
+    /* Warna & bentuk */
+    background: linear-gradient(135deg, #0984e3, #0652DD) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background-clip: padding-box !important;
+    -webkit-background-clip: padding-box !important;
+    border: none !important;
+    border-radius: 50px;
+
+    /* Tipografi */
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif !important;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    text-decoration: none !important;
+    text-shadow: none !important;
+
+    /* Interaksi */
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(9, 132, 227, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+    /* Anti-bocor */
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+/* Panah otomatis di kanan */
+.article-cta::after {
+    content: '→';
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: transform 0.3s ease;
+}
+
+.article-cta:hover {
+    background: linear-gradient(135deg, #0652DD, #0740a5) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(9, 132, 227, 0.48);
+}
+
+.article-cta:hover::after {
+    transform: translateX(6px);
+}
+
+.article-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(9, 132, 227, 0.4);
+}
+
+.article-cta:focus {
+    outline: none;
+}
+
+.article-cta:focus-visible {
+    outline: 3px solid rgba(9, 132, 227, 0.35);
+    outline-offset: 3px;
+}
+
+/* ============================================
+   LOADING & ERROR
+   ============================================ */
+.article .loading-state,
+.article .error-state {
+    text-align: center;
+    padding: 60px 20px;
+    font-size: 1.2rem;
+}
+
+.article .error-state {
+    color: #dc3545;
+}
+
+/* ---------- Scroll offset untuk navbar ---------- */
+section#article {
+    scroll-margin-top: 80px;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET
+   ============================================ */
+@media (max-width: 768px) {
+    .article .container {
+        padding: 0 16px;
+    }
+
+    .article h2 {
+        font-size: 2rem;
+    }
+
+    .article .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 30px;
+    }
+
+    .article-list {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .article-cta-wrapper {
+        margin-top: 44px;
+    }
+
+    .article-cta {
+        padding: 16px 38px;
+        min-height: 54px;
+        font-size: 1.05rem;
+        gap: 10px;
+    }
+
+    .article-cta::after {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media (max-width: 480px) {
+    .article-cta-wrapper {
+        margin-top: 36px;
+        padding: 0 16px;
+    }
+
+    .article-cta {
+        width: 100%;
+        max-width: 340px;
+        padding: 16px 28px;
+        min-height: 52px;
+        font-size: 1rem;
+        gap: 10px;
+    }
+
+    .article-cta::after {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
+   AKSESIBILITAS — REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+    .article-cta {
+        animation: none !important;
+        transition: none !important;
+    }
+}

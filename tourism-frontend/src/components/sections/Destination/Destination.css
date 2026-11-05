@@ -1,0 +1,377 @@
+/* ============================================
+   DESTINATION SECTION - MODERN & ELEGAN
+   ============================================ */
+
+.destination {
+    background: linear-gradient(to bottom, #f8f9fa 0%, #ffffff 100%);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dekorasi latar */
+.destination::before {
+    content: '';
+    position: absolute;
+    width: 450px;
+    height: 450px;
+    background: rgba(9, 132, 227, 0.03);
+    border-radius: 50%;
+    top: -100px;
+    right: -100px;
+    z-index: 0;
+}
+
+.destination::after {
+    content: '';
+    position: absolute;
+    width: 350px;
+    height: 350px;
+    background: rgba(253, 203, 110, 0.05);
+    border-radius: 50%;
+    bottom: -80px;
+    left: -80px;
+    z-index: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    font-weight: 800;
+    color: #2d3436;
+    line-height: 1.2;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.title-highlight {
+    color: #0984e3;
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, #0984e3, #74b9ff);
+    border-radius: 2px;
+    margin: 10px auto 20px;
+    animation: underlinePulse 2.5s infinite alternate;
+}
+
+@keyframes underlinePulse {
+    0% {
+        width: 80px;
+        opacity: 0.7;
+    }
+
+    100% {
+        width: 120px;
+        opacity: 1;
+    }
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: #636e72;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ============================================
+   GRID
+   ============================================ */
+.destination-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 32px;
+}
+
+/* Animasi reveal */
+.destination-card {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.destination-card.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger delay */
+@media (min-width: 600px) {
+    .destination-list .destination-card:nth-child(1) {
+        transition-delay: 0.05s;
+    }
+
+    .destination-list .destination-card:nth-child(2) {
+        transition-delay: 0.1s;
+    }
+
+    .destination-list .destination-card:nth-child(3) {
+        transition-delay: 0.15s;
+    }
+
+    .destination-list .destination-card:nth-child(4) {
+        transition-delay: 0.2s;
+    }
+
+    .destination-list .destination-card:nth-child(5) {
+        transition-delay: 0.25s;
+    }
+
+    .destination-list .destination-card:nth-child(6) {
+        transition-delay: 0.3s;
+    }
+}
+
+/* ============================================
+   NO DATA
+   ============================================ */
+.no-data {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 50px;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.no-data-icon {
+    font-size: 3rem;
+}
+
+.no-data p {
+    color: #636e72;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* ============================================
+   LOADING & ERROR
+   ============================================ */
+.destination-loading,
+.destination-error {
+    text-align: center;
+    padding: 80px 20px;
+    font-size: 1.2rem;
+    color: #636e72;
+}
+
+.destination-error {
+    color: #d63031;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(9, 132, 227, 0.2);
+    border-top: 3px solid #0984e3;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin: 0 auto 15px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* ============================================
+   TOMBOL LIHAT SEMUA DESTINASI
+   Konsisten dengan .gallery-cta, .culture-cta,
+   dan .article-cta
+   ============================================ */
+.destination-cta-wrapper {
+    text-align: center;
+    margin-top: 56px;
+    position: relative;
+    z-index: 1;
+}
+
+.destination-cta {
+    /* Reset total */
+    all: unset;
+
+    /* Layout */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    /* Ukuran */
+    padding: 18px 48px;
+    min-height: 60px;
+    box-sizing: border-box;
+
+    /* Warna & bentuk */
+    background: linear-gradient(135deg, #0984e3, #0652DD) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    background-clip: padding-box !important;
+    -webkit-background-clip: padding-box !important;
+    border: none !important;
+    border-radius: 50px;
+
+    /* Tipografi */
+    font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif !important;
+    font-weight: 700;
+    font-size: 1.15rem;
+    line-height: 1.2;
+    letter-spacing: 0.4px;
+    text-decoration: none !important;
+    text-shadow: none !important;
+
+    /* Interaksi */
+    cursor: pointer;
+    box-shadow: 0 10px 26px rgba(9, 132, 227, 0.35);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+
+    /* Anti-bocor */
+    filter: none !important;
+    mix-blend-mode: normal !important;
+    opacity: 1 !important;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
+}
+
+/* Panah otomatis di kanan */
+.destination-cta::after {
+    content: '→';
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transition: transform 0.3s ease;
+}
+
+.destination-cta:hover {
+    background: linear-gradient(135deg, #0652DD, #0740a5) !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    transform: translateY(-3px);
+    box-shadow: 0 16px 36px rgba(9, 132, 227, 0.48);
+}
+
+.destination-cta:hover::after {
+    transform: translateX(6px);
+}
+
+.destination-cta:active {
+    transform: translateY(0);
+    box-shadow: 0 6px 16px rgba(9, 132, 227, 0.4);
+}
+
+.destination-cta:focus {
+    outline: none;
+}
+
+.destination-cta:focus-visible {
+    outline: 3px solid rgba(9, 132, 227, 0.35);
+    outline-offset: 3px;
+}
+
+/* ============================================
+   RESPONSIVE — TABLET
+   ============================================ */
+@media (max-width: 768px) {
+    .destination {
+        padding: 50px 0;
+    }
+
+    .section-header {
+        margin-bottom: 35px;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1rem;
+    }
+
+    .destination-list {
+        grid-template-columns: 1fr;
+        max-width: 400px;
+        margin: 0 auto;
+    }
+
+    .destination-cta-wrapper {
+        margin-top: 44px;
+    }
+
+    .destination-cta {
+        padding: 16px 38px;
+        min-height: 54px;
+        font-size: 1.05rem;
+        gap: 10px;
+    }
+
+    .destination-cta::after {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   RESPONSIVE — MOBILE
+   ============================================ */
+@media (max-width: 480px) {
+    .destination-cta-wrapper {
+        margin-top: 36px;
+        padding: 0 16px;
+    }
+
+    .destination-cta {
+        width: 100%;
+        max-width: 340px;
+        padding: 16px 28px;
+        min-height: 52px;
+        font-size: 1rem;
+        gap: 10px;
+    }
+
+    .destination-cta::after {
+        font-size: 1.2rem;
+    }
+}
+
+/* ============================================
+   AKSESIBILITAS — REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+
+    .destination-card,
+    .destination-cta,
+    .title-underline {
+        animation: none !important;
+        transition: none !important;
+    }
+}
